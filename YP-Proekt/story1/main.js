@@ -1,66 +1,52 @@
+// Добавьте этот JavaScript в ваш main.js
 document.addEventListener("DOMContentLoaded", function () {
   const cardsContainer = document.querySelector(".story-cards");
-  const cards = Array.from(document.querySelectorAll(".story-cards .card"));
-  const searchInput = document.getElementById("search-input");
-  const sortSelect = document.getElementById("sort-select");
+  const cards = Array.from(document.querySelectorAll(".card"));
+  const volumeFilter = document.getElementById("volume-filter");
+  const sortBy = document.getElementById("sort-by");
+  const searchInput = document.getElementById("search");
 
-  // Функция для применения всех фильтров и сортировки
-  function applyFiltersAndSort() {
-    // Получаем значения фильтров
-    const searchQuery = searchInput.value.toLowerCase();
-    const selectedVolumes = Array.from(
-      document.querySelectorAll('input[name="volume"]:checked')
-    ).map((el) => el.value);
-    const selectedWicks = Array.from(
-      document.querySelectorAll('input[name="wick"]:checked')
-    ).map((el) => el.value);
+  // Функция фильтрации по объёму
+  function filterByVolume() {
+    const volume = volumeFilter.value;
 
-    // Фильтрация карточек
-    const filteredCards = cards.filter((card) => {
-      const title = card.querySelector("h3").textContent.toLowerCase();
-      const volume = card
-        .querySelector("p:nth-of-type(2)")
-        .textContent.replace("Объем баночки: ", "")
-        .trim();
-      const wick = card
-        .querySelector("p:nth-of-type(3)")
-        .textContent.replace("Фитиль: ", "")
-        .replace("фетиль", "")
-        .trim();
+    cards.forEach((card) => {
+      const volumeText = card.querySelector("p:nth-of-type(2)").textContent;
+      const cardVolume = volumeText.match(/\d+/)[0];
 
-      // Проверка соответствия поисковому запросу
-      const searchMatch = title.includes(searchQuery);
-
-      // Проверка соответствия фильтрам
-      const volumeMatch = selectedVolumes.includes(volume);
-      const wickMatch = selectedWicks.some((selectedWick) =>
-        wick.includes(selectedWick)
-      );
-
-      return searchMatch && volumeMatch && wickMatch;
+      if (volume === "all" || cardVolume === volume) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
     });
+  }
 
-    // Сортировка карточек
-    const sortValue = sortSelect.value;
+  // Функция сортировки
+  function sortCards() {
+    const sortValue = sortBy.value;
+    const filteredCards = cards.filter((card) => card.style.display !== "none");
+
     filteredCards.sort((a, b) => {
-      const titleA = a.querySelector("h3").textContent.toLowerCase();
-      const titleB = b.querySelector("h3").textContent.toLowerCase();
-      const priceA = parseInt(
-        a.querySelector("span").textContent.replace(/\D/g, "")
-      );
-      const priceB = parseInt(
-        b.querySelector("span").textContent.replace(/\D/g, "")
-      );
-
       switch (sortValue) {
         case "name-asc":
-          return titleA.localeCompare(titleB);
+          return a
+            .querySelector("h3")
+            .textContent.localeCompare(b.querySelector("h3").textContent);
         case "name-desc":
-          return titleB.localeCompare(titleA);
+          return b
+            .querySelector("h3")
+            .textContent.localeCompare(a.querySelector("h3").textContent);
         case "price-asc":
-          return priceA - priceB;
+          return (
+            parsePrice(a.querySelector("span").textContent) -
+            parsePrice(b.querySelector("span").textContent)
+          );
         case "price-desc":
-          return priceB - priceA;
+          return (
+            parsePrice(b.querySelector("span").textContent) -
+            parsePrice(a.querySelector("span").textContent)
+          );
         default:
           return 0;
       }
@@ -68,20 +54,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Очищаем контейнер и добавляем отсортированные карточки
     cardsContainer.innerHTML = "";
-    filteredCards.forEach((card) => {
-      cardsContainer.appendChild(card);
+    filteredCards.forEach((card) => cardsContainer.appendChild(card));
+
+    // Добавляем оставшиеся скрытые карточки в конец
+    cards.forEach((card) => {
+      if (card.style.display === "none" && !cardsContainer.contains(card)) {
+        cardsContainer.appendChild(card);
+      }
     });
   }
 
-  // Слушатели событий
-  searchInput.addEventListener("input", applyFiltersAndSort);
-  sortSelect.addEventListener("change", applyFiltersAndSort);
-  document
-    .querySelectorAll('input[name="volume"], input[name="wick"]')
-    .forEach((input) => {
-      input.addEventListener("change", applyFiltersAndSort);
+  // Функция для парсинга цены
+  function parsePrice(priceText) {
+    return parseInt(priceText.replace(/\D/g, ""));
+  }
+
+  // Функция поиска
+  function searchCards() {
+    const searchTerm = searchInput.value.toLowerCase();
+
+    cards.forEach((card) => {
+      const title = card.querySelector("h3").textContent.toLowerCase();
+
+      if (title.includes(searchTerm)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
     });
 
-  // Инициализация при загрузке страницы
-  applyFiltersAndSort();
+    // Применяем текущую сортировку после поиска
+    sortCards();
+  }
+
+  // Обработчики событий
+  volumeFilter.addEventListener("change", function () {
+    filterByVolume();
+    sortCards();
+  });
+
+  sortBy.addEventListener("change", sortCards);
+
+  searchInput.addEventListener("input", function () {
+    searchCards();
+  });
+
+  // Инициализация
+  filterByVolume();
+  sortCards();
 });

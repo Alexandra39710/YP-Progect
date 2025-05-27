@@ -96,8 +96,51 @@ body {
 .main img {
   max-width: 953px;
   height: 700px;
+  object-fit: cover;
 }
 
+/* Фильтр */
+/* Добавьте эти стили в ваш CSS */
+.filters {
+  background-color: #401104;
+  padding: 20px 0;
+  margin-bottom: 30px;
+}
+
+.filters .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-group label {
+  color: #fff7eb;
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+}
+
+.filter-group select,
+.filter-group input {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #fff7eb;
+  background-color: #fff7eb;
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  color: #47260b;
+}
+
+.filter-group input {
+  min-width: 250px;
+}
 
 /* Карточки историй */
 
@@ -141,6 +184,7 @@ body {
   width: 360px;
   height: 400px;
   border-radius: 30px 30px 0 0;
+  object-fit: cover;
 }
 
 .card .btns-story {

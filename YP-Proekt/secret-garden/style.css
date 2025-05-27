@@ -86,28 +86,32 @@ body {
 
 .main p {
   color: #fff7eb;
-  font-size: 14px;
+  font-size: 18px;
   font-family: "Playfair Display", serif;
   line-height: 1.15;
   font-weight: 400;
+  margin-top: 10px;
 }
 
 .main img {
   width: 900px;
   height: 800px;
+  object-fit: cover;
 }
 
 .main .btn {
+  position: relative;
   background-color: #fff7eb;
   color: #47260b;
   padding: 10px 30px;
   text-decoration: none;
   border-radius: 100px;
-  font-size: 14px;
+  font-size: 16px;
   font-family: "Playfair Display", serif;
   line-height: 1.15;
   font-weight: 400;
 }
+
 
 /* Карточки историй */
 
