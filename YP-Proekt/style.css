@@ -25,7 +25,7 @@ body {
 }
 
 .header .logo {
-  height: 140px;
+  height: 100px;
   display: flex;
   width: 280px;
   box-sizing: content-box;
@@ -219,21 +219,6 @@ body {
 .card img {
   width: 14px;
   height: 24px;
-}
-
-/* About */
-.about {
-  background-color: #401104;
-}
-.about h2 {
-  line-height: 54px;
-  text-align: center;
-  color: #fff7eb;
-  font-size: 35px;
-  font-family: "Playfair Display", serif;
-  line-height: 1.55;
-  font-weight: 400;
-  margin-top: 70px;
 }
 
 /* Контакты */
