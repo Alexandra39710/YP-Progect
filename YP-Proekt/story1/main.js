@@ -103,3 +103,73 @@ document.addEventListener("DOMContentLoaded", function () {
   filterByVolume();
   sortCards();
 });
+
+// Добавление в корзину---------------------------------------------------
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   // Обработчики для всех кнопок "В корзину"
+//   const addToCartButtons = document.querySelectorAll(
+//     ".btns-story .btn:last-child"
+//   );
+
+//   addToCartButtons.forEach((button) => {
+//     button.addEventListener("click", function (e) {
+//       e.preventDefault();
+
+//       // Находим родительскую карточку товара
+//       const card = this.closest(".card");
+
+//       // Собираем данные о товаре
+//       const product = {
+//         name: card.querySelector("h3").textContent,
+//         price: card.querySelector("span").textContent,
+//         image: card.querySelector("img").src,
+//         description: card.querySelector("p").textContent,
+//         volume: card.querySelectorAll("p")[1].textContent,
+//         wick: card.querySelectorAll("p")[2].textContent,
+//       };
+
+//       // Получаем текущую корзину из localStorage или создаем новую
+//       let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+//       // Добавляем товар в корзину
+//       cart.push(product);
+
+//       // Сохраняем обновленную корзину в localStorage
+//       localStorage.setItem("cart", JSON.stringify(cart));
+
+//       // Перенаправляем на страницу корзины
+//       window.location.href = "../cart/index.html";
+//     });
+//   });
+// });
+
+// -------------------------------------------------------
+document.addEventListener("DOMContentLoaded", function () {
+  const addToCartButtons = document.querySelectorAll(
+    ".btns-story .btn:last-child"
+  );
+
+  addToCartButtons.forEach((button) => {
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const card = this.closest(".card");
+      const product = {
+        name: card.querySelector("h3").textContent,
+        price: card.querySelector("span").textContent,
+        image: card.querySelector("img").src,
+        description: card.querySelector("p").textContent,
+        volume: card.querySelectorAll("p")[1].textContent,
+        wick: card.querySelectorAll("p")[2].textContent,
+      };
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(product);
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      // Перенаправляем на страницу корзины
+      window.location.href = "../cart/index.html";
+    });
+  });
+});
