@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Candelae Stories</title>
+  <meta name="description" content="Сюжетные свечи мастерской candelae.stories" />
+  <meta name="keywords"
+    content="candelae stories свечи, candelae.stories, сюжетные свечи, аромасвечи для книг, свечи по книгам, аромасвечи купить" />
+  <link rel="stylesheet" href="../css/story1.css" />
+</head>
+
+<body>
+  <!-- Шапка сайта -->
+  <header class="header">
+    <div class="head container">
+      <a href="../index.html" class="logo">
+        <img src="../image/logo.webp" alt="" />
+      </a>
+      <nav class="nav">
+        <ul>
+          <li>
+            <a href="#" id="userIcon"><img src="./image/user.png" alt="" /></a>
+          </li>
+          <li>
+            <a href="./cart/index.html"><img src="./image/cart.png" alt="" /></a>
+          </li>
+          <li>
+            <div class="burger-menu">
+              <div class="burger-icon">☰</div>
+              <div class="menu-items" id="menuItems">
+                <a href="./personal-account/index.html">Личный кабинет</a>
+                <a href="#" class="has-submenu" id="candlesLink">Свечи</a>
+                <div class="submenu" id="candlesSubmenu">
+                  <a href="../html/story1.html">1+1=3 свечи</a>
+                  <a href="#">Летние новинки</a>
+                  <a href="#">SALE -12%</a>
+                  <a href="#">Свечи по мотивам "Гари Поттера"</a>
+                  <a href="#">Подарочные сертификаты</a>
+                  <a href="#">Вся продукция</a>
+                </div>
+                <a href="../html/reviews.html">Отзывы</a>
+                <a href="../html/admin-personal.html">Администратор</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Главный блок -->
+  <section class="hero">
+    <div class="main">
+      <img src="../image/candles2.webp" alt="" />
+      <div class="right-hero">
+        <h1>1+1=3 свечи</h1>
+        <p>
+          При покупке двух свечей из этого раздела третья свеча идет в
+          подарок<br /><br />
+          Просто добавьте в корзину три понравившихся свечи, и скидка 100% на
+          третью свечу автоматически посчитается в корзине.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filtr -->
+  <!-- Добавьте этот код в секцию перед History-cards -->
+  <section class="filters">
+    <div class="container">
+      <div class="filter-group">
+        <label for="volume-filter">Фильтр по объёму:</label>
+        <select id="volume-filter">
+          <option value="all">Все</option>
+          <option value="60">60 мл</option>
+          <option value="120">120 мл</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="sort-by">Сортировка:</label>
+        <select id="sort-by">
+          <option value="default">По умолчанию</option>
+          <option value="name-asc">По названию (А-Я)</option>
+          <option value="name-desc">По названию (Я-А)</option>
+          <option value="price-asc">По цене (дешевле)</option>
+          <option value="price-desc">По цене (дороже)</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="search">Поиск:</label>
+        <input type="text" id="search" placeholder="Введите название свечи" />
+      </div>
+    </div>
+  </section>
+
+  <!-- History-cards -->
+  <section class="story">
+    <div class="story-cards container">
+      <div class="card">
+        <img src="../image/secret-garden.webp" alt="" />
+        <h3>Свеча "Таинственный сад"</h3>
+        <p>гортензия и лилия - клевер - пудра и гиацинт</p>
+        <span>845 руб.</span>
+        <p>Объем баночки: 60 мл</p>
+        <p>Фитиль: хлопковый фетиль</p>
+        <div class="btns-story">
+          <a href="../secret-garden/secret-garden.html" class="btn">Подробнее</a><a href="../cart/index.html"
+            class="btn">В корзину</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../image/nile-mistery.webp" alt="" />
+        <h3>Свеча "Nile Mystery"</h3>
+        <p>алоэ - пачули и агава - апельсин</p>
+        <span>795 руб.</span>
+        <p style="margin-top: 35px">Объем баночки: 60 мл</p>
+        <p>Фитиль: хлопковый фетиль</p>
+        <div class="btns-story">
+          <a href="#" class="btn">Подробнее</a><a href="../cart/index.html" class="btn">В корзину</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../image/aphrodita.jpg" alt="" />
+        <h3>Свеча "Афродита"</h3>
+        <p>морская пена - озон - лен</p>
+        <span>1295 руб.</span>
+        <p style="margin-top: 35px">Объем баночки: 120 мл</p>
+        <p>Фитиль: хлопковый фетиль</p>
+        <div class="btns-story">
+          <a href="" class="btn">Подробнее</a><a href="../cart/index.html" class="btn">В корзину</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../image/jardin.webp" alt="" />
+        <h3>Свеча "Jardin Botanique"</h3>
+        <p>фрезия и лилии - белый мускус - мандарин и жасмин</p>
+        <span>1295 руб.</span>
+        <p>Объем баночки: 120 мл</p>
+        <p>Фитиль: деревянный фетиль</p>
+        <div class="btns-story">
+          <a href="" class="btn">Подробнее</a><a href="../cart/index.html" class="btn">В корзину</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../image/desert-rose.webp" alt="" />
+        <h3>Свеча "Desert Rose"</h3>
+        <p>пачули и грейпфрут - розы - магнолия и базилик</p>
+        <span>1295 руб.</span>
+        <p>Объем баночки: 120 мл</p>
+        <p>Фитиль: хлопковый фетиль</p>
+        <div class="btns-story">
+          <a href="" class="btn">Подробнее</a><a href="../cart/index.html" class="btn">В корзину</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../image/pastoral.webp" alt="" />
+        <h3>Свеча "Pastoral"</h3>
+        <p>тюльпаны - свежая листва - белый мускус</p>
+        <span>1295 руб.</span>
+        <p>Объем баночки: 120 мл</p>
+        <p>Фитиль: деревянный фетиль</p>
+        <div class="btns-story">
+          <a href="" class="btn">Подробнее</a><a href="../cart/index.html" class="btn">В корзину</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контактная информация -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <p>ИП Никитина Лидия Андреевна</p>
+      <p><span>ИНН</span>780634044390</p>
+      <p><span>ОГРНИП</span>780634044390</p>
+      <span>candelaestories@yandex.ru</span>
+      <p>Политика конфиденциальности</p>
+    </div>
+  </section>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="foot container">
+      <h1 class="logo">Candelae Stories</h1>
+    </div>
+  </footer>
+
+  <script src="../js/story1.js"></script>
+</body>
+
+</html>
